@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    background: #000;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    height: 850px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.solar-system {
+    height: 850px;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+top: 15px;}
+
+.solar-system::after {
+    content: 'اضغط على الشريط لمعرفه المزيد>';
+    position: absolute;
+  top: 15px;
+    right: 10px;
+    color: #efefef;
+    font-family: sans
+}
+
+.info {
+    background: #111;
+}
+
+.circle {
+    border-radius: 50%;
+    position: absolute;
+}
+
+.sun {
+    background: url('https://cdn.pixabay.com/photo/2012/01/09/09/10/sun-11582_960_720.jpg');
+    width: 100px;
+    height: 100px; 
+    animation: pole-rotate 30s infinite linear;
+    box-shadow: 0px 0px 20px #fc9328
+    
+
+}
+
+.mercury {
+    background: radial-gradient(at top, #dbdbdb, #454545);
+    width: 20px;
+    height: 20px; 
+    animation: mercury-rotate 6s infinite linear;
+}
+
+@keyframes pole-rotate {
+    0% {
+        background-position: center center;
+    }
+    50% {
+        background-position: 50% 40%;
+    }
+    to {
+        transform: rotate(360deg);
+        background-position: center center;
+    }
+}
+
+@keyframes mercury-rotate {
+    0% {
+        transform: rotateZ(0) translateX(-70px);
+    }
+    to {
+        transform: rotateZ(360deg) translateX(-70px) ;
+    }
+}
+
+.venus {
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/PIA00271_Venus_%28Computer_Simulated_Global_View_of_the_Northern_Hemisphere%29.jpg/600px-PIA00271_Venus_%28Computer_Simulated_Global_View_of_the_Northern_Hemisphere%29.jpg') no-repeat;
+    width: 40px;
+    height: 40px; 
+    background-size: 100% 100%;
+    animation: venus-rotate 30s infinite linear;
+}
+
+@keyframes venus-rotate {
+    0% {
+        transform: rotateZ(20deg) translateX(-100px) ;
+    }
+    to {
+        transform: rotateZ(380deg) translateX(-100px);
+    }
+}
+
+.earth {
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Earth-DSCOVR-20150706-IFV.jpg/610px-Earth-DSCOVR-20150706-IFV.jpg');
+    background-size: 120% 120%;
+    background-position: center center;
+    width: 42px;
+    height: 42px; 
+    animation: earth-rotate 14s infinite linear;
+    box-shadow: 0px 0px 10px #6897c7
+}
+
+@keyframes earth-rotate {
+    0% {
+        transform: rotateZ(40deg) translateX(-150px) ;
+    }
+    to {
+        transform: rotateZ(400deg) translateX(-150px);
+    }
+}
+
+.mars {
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Mars_23_aug_2003_hubble.jpg/267px-Mars_23_aug_2003_hubble.jpg');
+    background-size: 100% 100%;
+    width: 28px;
+    height: 28px; 
+    animation: mars-rotate 28s infinite linear;
+}
+
+@keyframes mars-rotate {
+    0% {
+        transform: rotateZ(0deg) translateX(-190px) ;
+    }
+    to {
+        transform: rotateZ(360deg) translateX(-190px);
+    }
+}
+
+.jupiter {
+    background: url('https://solarsystem.nasa.gov/internal_resources/3794/');
+    background-size: 150% 150%;
+    background-position: center center;
+    width: 60px;
+    height: 60px; 
+    animation: jupiter-rotate 160s infinite linear;
+}
+
+@keyframes jupiter-rotate {
+    0% {
+        transform: rotateZ(0deg) translateX(-240px) ;
+    }
+    50% {
+        background-position: 55% 40%;
+    }
+    to {
+        transform: rotateZ(360deg) translateX(-240px);
+        background-position: center center;
+    }
+}
+
+.saturn {
+    background: url('https://rwspace.ru/wp-content/uploads/2018/12/2-17.jpg');
+    background-size: 100% 100%;
+    background-position: center center;
+    width: 80px;
+    height: 60px; 
+    animation: saturn-rotate 320s infinite linear;
+}
+
+@keyframes saturn-rotate {
+    0% {
+        transform: rotateZ(60deg) translateX(-310px) ;
+    }
+    to {
+        transform: rotateZ(420deg) translateX(-310px);
+    }
+}
+
+.uranus {
+    background: radial-gradient(circle at top, #a9f5f5, #3c7483);
+    width: 50px;
+    height: 50px; 
+    animation: uranus-rotate 1120s infinite linear;
+}
+
+@keyframes uranus-rotate {
+    0% {
+        transform: rotateZ(-180deg) translateX(-360px) ;
+    }
+    to {
+        transform: rotateZ(180deg) translateX(-360px);
+    }
+}
+
+.neptune {
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Neptune_Full.jpg/600px-Neptune_Full.jpg');
+    background-size: 120% 120%;
+    background-position: center center;
+    width: 45px;
+    height: 45px; 
+    animation: neptune-rotate 1420s infinite linear;
+}
+
+@keyframes neptune-rotate {
+    0% {
+        transform: rotateZ(90deg) translateX(-410px);
+    }
+    to {
+        transform: rotateZ(450deg) translateX(-410px);
+    }
+}
+
+.info {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    color: #888;
+    margin: 2% 0;
+}
+
+.planet-info {
+    padding: 5px;
+    cursor: pointer;
+    font-family: sans;
+    position: relative;
+    border-bottom: 1px solid #222;
+    transition: transform 0.3s linear;
+    box-sizing: border-box;
+}
+
+.planet-info:hover {
+    background-color: #000;
+    border: 1px solid #efefef;
+    color: #efefef;
+    transform:translateX(-40px) scale(1.1);
+    z-index: 10;
+}
+
+.planet-info .mercury,
+.planet-info .venus,
+.planet-info .earth,
+.planet-info .mars,
+.planet-info .jupiter,
+.planet-info .uranus,
+.planet-info .neptune
+{
+    animation: none;
+    width: 80px;
+    height: 80px;
+    box-shadow: none;
+    position: relative;
+    float: left;
+    shape-outside: circle(50%);
+    margin-right: 15px;
+
+}    
+
+
+.planet-info .saturn {
+    animation: none;
+    width: 110px;
+    height: 80px;
+    position: relative;
+    float: left;
+}
+
+.planet-info h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+
+.planet-info p {
+    margin: 0;
+    padding: 0;
+    font-size: 75%;
+}
+
+.additional {
+    background: rgba(255, 255, 255, 0.3);
+    color: #fefefe;
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-height: 400px;
+    width: 0;
+    transition: width 0.3s linear;
+    z-index: 15;
+}
+
+.additional.show {
+    width: 40%;
+    font-family: sans;
+    margin: 50px;
+    padding: 30px 50px;
+    text-align: justify;
+    text-indent: 30px
+}
+
+.close {
+    visibility: hidden;
+}
+
+.close.show {
+    visibility: visible;
+    position: absolute;
+    display: inline-block;
+    text-indent: 0;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    transition: transform 0.3s linear;
+}
+
+.close:hover {
+    transform: scale(1.5)
+}
+.di{
+    direction: rtl;
+    font-family: 'Markazi Text', serif;
+
+}
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <div class="additional">
+            <span class="close">&#10006;</span>
+            <div class="about"></div>
+        </div>
+        <div class="solar-system">
+            <div class="sun circle"></div>
+            <div class="mercury circle"></div>
+            <div class="venus circle"></div>
+            <div class="earth circle"></div>
+            <div class="mars circle"></div>
+            <div class="jupiter circle"></div>
+            <div class="saturn circle"></div>
+            <div class="uranus circle"></div>
+            <div class="neptune circle"></div>
+        </div>
+        <div class="di">
+        <div class="info">
+            <div class="planet-info show-mercury" data-planet="mercury">
+                <div class="mercury circle" data-planet="mercury"></div>
+                <h2 data-planet="mercury">عطارد</h2>
+                <p data-planet="mercury">
+                    هو أصغر وأعمق كوكب في النظام الشمسي. مداره
+                    فترة حول الشمس 87.97 يوما هي الأقصر بين جميع الكواكب في
+                    النظام الشمسي. 
+                </p>
+            </div>
+            <div class="planet-info" data-planet="venus">
+                <div class="venus circle" data-planet="venus"></div>
+                <h2 data-planet="venus">الزهرة</h2>
+                <p data-planet="venus">
+                    كوكب الزهرة قريب من الأرض ، ومثل الأرض ، لديه عباءة سيليكات سميكة
+                    حول قلب من الحديد ، وجو كبير ، ودليل على الجيولوجية الداخلية
+                    نشاط. وهي أكثر جفافاً من الأرض ، كما أن غلافها الجوي هو تسعين مرة كثيف.
+                </p>
+            </div>
+            <div class="planet-info" data-planet="earth">
+                <div class="earth circle" data-planet="earth"></div>
+                <h2 data-planet="earth">الأرض</h2>
+                <p data-planet="earth">
+                    الأرض هي الأكبر والأكثر كثافة من الكواكب الداخلية ، وهي الوحيدة المعروفة
+                    النشاط الجيولوجي الحالي ، والمكان الوحيد الذي من المعروف أن الحياة موجودة.
+                    المحيط المائي السائل فريد بين الكواكب الأرضية ، وهو
+                    فقط الكوكب حيث لوحظ تكتونية الصفائح.
+                </p>
+            </div>
+            <div class="planet-info" data-planet="mars">
+                <div class="mars circle" data-planet="mars"></div>
+                <h2 data-planet="mars">المريخ</h2>
+                <p data-planet="mars">
+                    المريخ لديه جو من ثاني أكسيد الكربون في الغالب
+                    مع ضغط سطحي يبلغ 6.1 مليبار. سطحه مليء بالبراكين الشاسعة
+                    مثل أوليمبوس مونس ، والوديان المتصدعة ، مثل Valles Marineris ، تظهر الجيولوجية
+                    النشاط الذي قد يكون استمر حتى وقت قريب حتى 2 مليون سنة.
+                </p>
+            </div>
+            <div class="planet-info" data-planet="jupiter">
+                <div class="jupiter circle" data-planet="jupiter"></div>
+                <h2 data-planet="jupiter">المشتري</h2>
+                <p data-planet="jupiter">
+                    المشتري ، عند 318 M⊕ ، هو 2.5 ضعف كتلة جميع الكواكب الأخرى مجتمعة. أنه
+                    تتكون إلى حد كبير من الهيدروجين والهيليوم. الحرارة الداخلية القوية لكوكب المشتري تخلق شبه دائمة
+                    الميزات في الغلاف الجوي ، مثل فرق السحابة والبقعة الحمراء الكبرى.
+                </p>
+            </div>
+            <div class="planet-info" data-planet="saturn">
+                <div class="saturn circle" data-planet="saturn"></div>
+                <h2 data-planet="saturn">زحل</h2>
+                <p data-planet="saturn">
+                    يتميز زحل ، الذي يتميز بنظامه الدائري الواسع ، بالعديد من أوجه التشابه مع المشتري ،
+                    مثل تكوين الغلاف الجوي والغلاف المغناطيسي. على الرغم من أن زحل لديه 60 ٪ من المشتري
+                    الحجم ، فهو أقل من ثلث حجمه.
+                </p>
+            </div>
+            <div class="planet-info" data-planet="uranus">
+                <div class="uranus circle" data-planet="uranus"></div>
+                <h2 data-planet="uranus">أورانوس</h2>
+                <p data-planet="uranus">
+                    أورانوس ، عند 14 م⊕ ، هو أخف الكواكب الخارجية. فريد بين الكواكب ، يدور
+                    الشمس على جانبها. ميله المحوري هو أكثر من تسعين درجة إلى مسير الشمس. لديها برودة أكثر بكثير
+                    جوهر من الكواكب العملاقة الأخرى ويشع القليل جدا من الحرارة في الفضاء.
+                </p>
+            </div>
+            <div class="planet-info" data-planet="neptune">
+                <div class="neptune circle" data-planet="neptune"></div>
+                <h2 data-planet="neptune">نبتون</h2>
+                <p data-planet="neptune">
+                    نبتون هو ثامن وأبعد كوكب معروف عن الشمس في النظام الشمسي.
+                    في النظام الشمسي ، هو رابع أكبر كوكب من حيث القطر ،
+                    ثالث أكبر كوكب عملاق ، وكوكب عملاق كثيف.
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        additional = {
+    mercury : `
+        <p>
+            أصغر وأعمق كوكب في النظام الشمسي. الفترة المدارية حول الشمس
+            87.97 يومًا هي أقصر الكواكب في المجموعة الشمسية. 
+        </p>
+        <p>
+            مثل كوكب الزهرة ، يدور عطارد حول الشمس في مدار الأرض ككوكب أدنى ، ولا يتجاوز 28 درجة
+            بعيدًا عن الشمس عند النظر إليه من الأرض. هذا القرب من الشمس يعني أنه يمكن رؤية الكوكب فقط
+            بالقرب من الأفق الغربي أو الشرقي خلال المساء المبكر أو الصباح الباكر. في هذا الوقت قد تظهر
+            كجسم مشرق يشبه النجم ، ولكن غالبًا ما يكون من الصعب جدًا ملاحظته أكثر من الزهرة. الكون
+            يعرض تلسكوبيًا مجموعة كاملة من الأطوار ، على غرار الزهرة والقمر ، أثناء انتقالها
+            مداره الداخلي بالنسبة إلى الأرض ، والذي يتكرر خلال ما يسمى بالفترة السينودسية كل 116 يومًا تقريبًا.
+        </p>`,
+    venus: `
+        <p> 
+            كوكب الزهرة هو الكوكب الثاني من الشمس الذي يدور حوله كل 224.7 يومًا أرضيًا. لديها أطول فترة دوران
+            (243 يومًا) من أي كوكب في المجموعة الشمسية ويدور في الاتجاه المعاكس لمعظم الكواكب الأخرى (بمعنى
+            تشرق الشمس في الغرب وتغرب في الشرق). ليس لديها أي أقمار صناعية طبيعية. سميت بعد
+            إلهة الحب الروماني والجمال. إنه ثاني أكثر الأشياء سطوعًا في السماء ليلاً بعد القمر ،
+            الوصول إلى حجم ظاهري −4.6 - ساطع بما يكفي لإلقاء الظلال في الليل ، ونادرًا ما يكون مرئيًا للعراة
+            عين في وضح النهار. يدور كوكب الزهرة في مدار حول الأرض ، وهو كوكب أدنى ولا يبدو أنه يغامر أبدًا
+            بعيدًا عن الشمس ؛ أقصى مسافة زاوية لها من الشمس (الاستطالة) هي 47.8 درجة.
+        </p>`,
+    earth: `
+        <p>
+            الأرض هي الكوكب الثالث من الشمس ، والشيء الفلكي الوحيد المعروف أنه يؤوي الحياة. طبقًا لقياسات الأشعة
+            المواعدة ومصادر الأدلة الأخرى ، تشكلت الأرض قبل أكثر من 4.5 مليار سنة. تتفاعل جاذبية الأرض مع الآخرين
+            الأجسام في الفضاء ، وخاصة الشمس والقمر ، القمر الصناعي الطبيعي الوحيد للأرض. تدور الأرض حول الشمس في 365.26
+            أيام ، وهي فترة تعرف بسنة الأرض. خلال هذا الوقت ، تدور الأرض حول محورها حوالي 366.26 مرة. محور الأرض
+            من الدوران يميل فيما يتعلق بالمستوى المداري ، مما ينتج مواسم على الأرض. تفاعل الجاذبية
+            بين الأرض والقمر يسبب المد والجزر ، ويثبت اتجاه الأرض على محوره ، ويبطئ دورانه تدريجياً.
+            الأرض هي الكوكب الأكثر كثافة في المجموعة الشمسية والأكبر والأضخم من الكواكب الأرضية الأربعة.
+        </p>
+    `,
+    mars: `
+        <p>
+            المريخ هو رابع كوكب من الشمس وثاني أصغر كوكب في النظام الشمسي بعد عطارد.
+            في اللغة الإنجليزية ، يحمل المريخ اسم إله الحرب الروماني ، وغالبًا ما يشار إليه باسم "الكوكب الأحمر" لأن
+            أكسيد الحديد السائد على سطحه يمنحها مظهرًا محمرًا مميزًا بين الأجسام الفلكية
+            مرئية للعين المجردة. كوكب المريخ هو كوكب أرضي ذو جو رقيق ، وله ميزات سطحية تذكرنا
+            كل من الحفر الصخرية للقمر والوديان والصحاري والغطاء الجليدي القطبي للأرض. الأيام والمواسم
+            وبالمثل قابلة للمقارنة مع تلك الأرض ، لأن فترة الدوران وكذلك إمالة محور الدوران
+            بالنسبة لمستوى مسير الشمس متشابهة للغاية. المريخ هو موقع أوليمبوس مونس ، أكبر بركان و
+            ثاني أعلى جبل معروف في النظام الشمسي ، و Valles Marineris ، أحد أكبر الأخاديد في المجموعة الشمسية.
+            يغطي حوض بورياليس الأملس في نصف الكرة الشمالي 40 ٪ من الكوكب وقد يكون سمة تأثير عملاقة.
+            للمريخ قمران ، فوبوس وديموس ، صغيران وغير متجانسين الشكل. قد يتم القبض على هذه الكويكبات ،
+            على غرار 5261 يوريكا ، حصان طروادة المريخ.
+        </p>
+        `,
+    jupiter: 
+        `<p>
+            المشتري هو الكوكب الخامس من الشمس والأكبر في المجموعة الشمسية. إنه كوكب عملاق ذو كتلة
+            واحد ألف من الشمس ، ولكن مرتين ونصف من جميع الكواكب الأخرى في النظام الشمسي مجتمعة.
+            كوكب المشتري وزحل عمالقة غاز. الكواكب العملاقة الأخرى ، أورانوس ونبتون ، عمالقة جليدية. كان المشتري
+            معروف لعلماء الفلك منذ العصور القديمة. سميت على اسم الإله الروماني المشتري. عندما ينظر إليها من الأرض ، المشتري
+            يمكن أن تصل إلى حجم ظاهري −2.94 ، مشرق بما فيه الكفاية لضوءها المنعكس لإلقاء الظلال ، وجعله قيد التشغيل
+            متوسط ​​ثالث جسم ألمع في سماء الليل بعد القمر والزهرة.
+        </p>
+        `,
+    saturn:
+        `<p>
+            زحل هو الكوكب السادس من الشمس وثاني أكبر كوكب في النظام الشمسي بعد المشتري. إنه غاز
+            عملاق بمتوسط ​​نصف قطر حوالي تسعة أضعاف الأرض. لديها فقط ثُمن متوسط ​​الكثافة
+            من كوكب الأرض ، ولكن مع حجمه الأكبر ، فإن زحل أكبر من 95 مرة
+            . ربما زحل الداخلية
+            يتكون من قلب من الحديد والنيكل والصخور (مركبات السيليكون والأكسجين). هذا اللب محاط بطبقة عميقة
+            من الهيدروجين المعدني ، وطبقة وسيطة من الهيدروجين السائل والهليوم السائل ، وأخيرًا طبقة خارجية غازية.
+            زحل له لون أصفر باهت بسبب بلورات الأمونيا في الغلاف الجوي العلوي. التيار الكهربائي داخل المعدن
+             يعتقد أن طبقة الهيدروجين تؤدي إلى المجال المغناطيسي لكوكب زحل ، وهو أضعف من مجال الأرض ، ولكن لديه
+              عزم مغناطيسي 580 مرة من الأرض بسبب حجم زحل الأكبر. زحل المجال المغناطيسي زحل
+              حوالي واحد وعشرون من المشتري. الجو الخارجي لطيف بشكل عام ويفتقر إلى التباين ، على الرغم من ذلك
+            يمكن أن تظهر الميزات طويلة العمر.
+        </p>`,
+    neptune:
+        `<p>
+            نبتون هو ثامن وأبعد كوكب معروف عن الشمس في النظام الشمسي. في النظام الشمسي ، هو
+            رابع أكبر كوكب من حيث القطر ، وثالث أكثر الكواكب ضخامة ، وكوكب عملاق كثيف. نبتون 17 مرة
+            كتلة الأرض ، كتلة أكبر بقليل من شبه التوأم أورانوس. نبتون أكثر كثافة وأصغر جسديا من
+            أورانوس لأن كتلته الكبيرة تسبب ضغطًا أكثر جاذبية للغلاف الجوي. يدور نبتون حول الشمس مرة واحدة
+            كل 164.8 سنة بمتوسط ​​30.1 AU (4.5 مليار كيلومتر). سميت على اسم إله البحر الروماني و
+            له رمز فلكي a ، نسخة مبسطة من ترايدنت نبتون. نبتون غير مرئي للمساعد
+            العين وهو الكوكب الوحيد في النظام الشمسي الذي تم العثور عليه من خلال التنبؤ الرياضي بدلاً من المراقبة التجريبية.
+            دفعت التغييرات غير المتوقعة في مدار أورانوس ألكسيس بوفارد إلى استنتاج أن مداره كان عرضة للجاذبية
+            اضطراب بكوكب غير معروف. تمت ملاحظة نبتون بعد ذلك بواسطة تلسكوب في 23 سبتمبر 1846 بواسطة يوهان
+            جالي ضمن درجة الموقف الذي تنبأ به Urbain Le Verrier. تم اكتشاف أكبر قمر لها ، تريتون ، قريبا
+            بعد ذلك ، على الرغم من أنه لم يتم العثور على أي من أقمار القمر 13 المعروفة المتبقية على كوكب الأرض تلسكوبيًا حتى القرن العشرين.
+        </p> `,
+    uranus:
+        `<p>
+            هو الكوكب السابع من الشمس. لديها ثالث أكبر
+            نصف القطر الكوكبي ورابع أكبر كتلة كوكبية في النظام الشمسي. أورانوس يشبه في تكوينه نبتون ،
+            وكلاهما له تركيبات كيميائية كبيرة تختلف عن تلك التي لدى عمالقة الغاز الأكبر حجماً المشتري وزحل. لهذا
+            السبب ، غالبًا ما يصنف العلماء أورانوس ونبتون على أنهم "عمالقة الجليد" لتمييزهم عن عمالقة الغاز. أورانوس
+            الغلاف الجوي مشابه للمشتري وزحل في تكوينه الأساسي من الهيدروجين والهليوم ، ولكنه يحتوي على
+            المزيد من "الجليد" مثل الماء والأمونيا والميثان ، إلى جانب آثار الهيدروكربونات الأخرى. إنه أبرد كوكب
+            الغلاف الجوي في النظام الشمسي ، مع درجة حرارة لا تقل عن 49 كلفن (24224 درجة مئوية ؛ −371 درجة فهرنهايت) ، ولديه سحابة معقدة ذات طبقات
+            يعتقد أن الهيكل مع الماء يشكل أدنى الغيوم والميثان الطبقة العليا من الغيوم. داخل
+            يتكون أورانوس بشكل رئيسي من الجليد والصخور.
+        </p>`
+
+}
+
+window.onload = () => {
+    document.querySelectorAll('.planet-info').forEach(
+        block => block.onclick = (event) => {
+            const planet = event.target.dataset.planet
+
+            document.querySelector('.about').innerHTML = additional[planet]
+            document.querySelector('.additional').classList.add('show')
+            document.querySelector('.close').classList.add('show')
+        }
+    )
+
+    document.querySelector('.close').onclick = () => {
+        document.querySelector('.about').innerHTML = ''
+        document.querySelector('.additional').classList.remove('show') 
+    }
+
+}
+    </script>
+</body>
+</html>
